@@ -1,0 +1,6 @@
+{
+    "require-dev": {
+        "symfony/panther": "^1.1",
+        "phpunit/phpunit": "^9.5"
+    }
+}

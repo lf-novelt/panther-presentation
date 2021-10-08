@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  panther:
+    container_name: panther
+    build:
+      context: ./panther
+    ports:
+      - 80:80
+    volumes:
+      - ./panther/src:/var/www/html/public
