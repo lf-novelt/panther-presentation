@@ -9,3 +9,6 @@ services:
       - 80:80
     volumes:
       - ./panther/src:/var/www/html/public
+    environment: 
+      AD_USERNAME: ${AD_USERNAME}
+      AD_PASSWORD: ${AD_PASSWORD}
