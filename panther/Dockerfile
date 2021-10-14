@@ -4,7 +4,6 @@ RUN apk update && apk add bash
 
 #install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install
 
 # Chromium and ChromeDriver
 ENV PANTHER_NO_SANDBOX 1
@@ -16,4 +15,10 @@ RUN docker-php-ext-install zip
 
 EXPOSE 9000
 
-CMD ["php-fpm", "-F"]
+#CMD ["php-fpm", "-F"]
+
+WORKDIR /var/www/html/public
+COPY src .
+RUN composer install
+
+CMD ["php", "./vendor/bin/phpunit"]
