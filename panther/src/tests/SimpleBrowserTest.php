@@ -35,15 +35,13 @@ class SimpleBrowserTest extends PantherTestCase
     {
         $pantherClient = static::createPantherClient(
         [
-            'external_base_uri' => 'https://extranet-uat.novel-t.ch/xmart',
-            'request_timeout_in_ms' => 60000
+            'external_base_uri' => 'https://extranet-uat.novel-t.ch/xmart'
         ],
         [],
         [
             'capabilities' => [
                 'acceptInsecureCerts' => true,
-            ],
-            'request_timeout_in_ms' => 20000000
+            ]
         ]
         );
 
@@ -82,7 +80,7 @@ class SimpleBrowserTest extends PantherTestCase
         self::$pantherClient->takeScreenshot('5-testXmartHome_logged.png');
 
         $crawler = self::$pantherClient->getCrawler();
-        $xMart = $crawler->filter(".p-col-12.p-md-6.xmart-page-titles > div > p:nth-of-type(1)")->getText();
+        $xMart = $crawler->filter(".xmart-page-titles > div > p:nth-of-type(1)")->getText();
         $this->assertEquals('xMart is a self-service platform for data managers.', $xMart);
     }
 
